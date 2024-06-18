@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import ArticleItem from "./ArticleItem"
 import { getArticleById } from "../api"
 import { useParams } from "react-router-dom"
+import Comments from "./Comments"
 
 const SingleArticle = () => {
     const { article_id } = useParams();
@@ -18,10 +19,12 @@ const SingleArticle = () => {
     if(isLoading){
         return <p className="loading">Loading...</p>
     }
-    return (<article  className="single-article" >
-        <ArticleItem key={singleArticle.article_id} article={singleArticle}/>
-        
-    </article>)
+    return (<>
+        <article  className="single-article" >
+            <ArticleItem key={singleArticle.article_id} article={singleArticle}/>
+        </article>
+        <Comments article_id={article_id}/>
+    </>)
 }
 
 export default SingleArticle

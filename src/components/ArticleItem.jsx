@@ -10,7 +10,7 @@ const ArticleItem = ({article}) => {
         <img className="article-img" src={article.article_img_url} alt={article.title}/>
         <h3 className="article-title">{article.title}</h3>
         <p className="article-info">By: {article.author} | Topic: {article.topic}</p>
-        <p className="article-data">Created: {formattedDate} {`(${formattedTime})`} | Votes: {article.votes}</p> 
+        <p className="article-data">Posted: {formattedDate} {`(${formattedTime})`} | Votes: {article.votes}</p> 
         {pathname === "/" ?
             <Link to={`/${article.article_id}`}>
                 <button>Read the full article</button>
