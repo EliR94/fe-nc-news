@@ -1,9 +1,9 @@
+import { Link } from "react-router-dom"
+
 const NavBar = () => {
     return (
         <nav className="nav">
-            <ul>
-                <li>Future NavBar Here</li>
-            </ul>
+            <Link to="/">Home</Link>
         </nav>
     )
 }

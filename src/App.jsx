@@ -3,6 +3,7 @@ import './App.css'
 import Header from "../src/components/Header"
 import NavBar from './components/NavBar'
 import Articles from './components/Articles'
+import SingleArticle from './components/SingleArticle'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Articles />}></Route>
+        <Route path="/:article_id" element={<SingleArticle />}></Route>
       </Routes>
     </div>
   )
