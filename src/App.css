@@ -4,3 +4,38 @@
   padding: 2rem;
   text-align: center;
 }
+
+.app {
+  background-color: lightgoldenrodyellow;
+}
+
+.header {
+  background-color: aqua;
+}
+
+.nav {
+  background-color: lightgreen;
+}
+
+.article {
+  background-color: lightpink;
+  border: 5px solid;
+  margin: 5px 10px;
+  padding: 5px;
+  width: 380px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.article-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.article-img {
+  width: 380px;
+}
