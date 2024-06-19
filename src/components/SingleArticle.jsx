@@ -10,18 +10,19 @@ const SingleArticle = () => {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(()=>{
+        setIsLoading(true)
         getArticleById(article_id).then((articleFromAPI)=>{
             setSingleArticle(articleFromAPI.data.article)
             setIsLoading(false)
         })
-    }, [])
+    }, [article_id])
 
     if(isLoading){
         return <p className="loading">Loading...</p>
     }
     return (<>
         <article  className="single-article" >
-            <ArticleItem key={singleArticle.article_id} article={singleArticle}/>
+            <ArticleItem article_id={article_id} singleArticle={singleArticle} setSingleArticle={setSingleArticle}/>
         </article>
         <Comments article_id={article_id}/>
     </>)

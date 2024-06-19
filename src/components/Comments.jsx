@@ -7,11 +7,12 @@ const Comments = ({article_id}) => {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
+        setIsLoading(true)
         getComments(article_id).then((commentsFromAPI) => {
             setComments(commentsFromAPI.data.comments)
             setIsLoading(false)
         })
-    }, [])
+    }, [article_id])
 
     if(isLoading){
         return <p className="loading">Loading...</p>
