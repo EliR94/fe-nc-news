@@ -8,6 +8,7 @@ const Articles = () => {
     const [isLoading, setIsLoading] = useState(true)
     
     useEffect(() => {
+        setIsLoading(true)
         getArticles().then((articlesFromAPI) => {
             setArticles(articlesFromAPI.data.articles)
             setIsLoading(false)
@@ -20,7 +21,7 @@ const Articles = () => {
     return (<>
         <ul className="article-list">
             {articles.map((article) => {
-                return <ArticleItem key={article.article_id} article={article}/>
+                return <ArticleItem key={article.article_id} singleArticle={article}/>
             })}
         </ul>
     </>)
