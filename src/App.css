@@ -65,8 +65,8 @@ li {
 
 .comment {
   display: grid;
-  grid-template-columns: 200px 1fr;
-  grid-template-rows: 1fr;
+  grid-template-columns: min-content 1fr auto;
+  grid-template-rows: min-content 1fr min-content;
   border: 5px solid;
   margin-bottom: 10px;
   background-color: lightgray;
@@ -74,7 +74,8 @@ li {
 
 .comment-author {
   grid-column: 1;
-  margin: 0
+  margin: 0;
+  width: min-content;
 }
 
 .comment-created {
@@ -83,8 +84,20 @@ li {
 }
 
 .comment-body {
-  grid-column: 1/3;
+  grid-column: 1/4;
   margin-top: 0;
+}
+
+.comment-delete-button {
+  grid-column: 3/4;
+  grid-row: 1;
+  padding: 0 2.5px;
+  margin-left: 10px;
+}
+
+.delete-comment-err-msg {
+  grid-column: 1/4;
+  grid-row: 3;
 }
 
 .comment-list > h2 {
@@ -102,7 +115,7 @@ li {
   margin-right: 10px;
 }
 
-.vote-err-msg, .new-comment-err-msg {
+.vote-err-msg, .new-comment-err-msg, .delete-comment-err-msg {
   display: inline;
   margin-left: 10px;
   padding: 7.5px;
@@ -117,6 +130,15 @@ li {
 .article-dislike-button:hover, .article-like-button:hover {
   border-color: white;
 }
+
+.posting-msg {
+  font-size: medium;
+  font-weight: bold;
+  background-color: orange;
+  border: 5px solid;
+  border-color: black;
+}
+
 @media only screen and (min-width: 800px){ 
   .single-article > .article {
     display: grid;
@@ -152,7 +174,7 @@ li {
   }
   .comment {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 200px 1fr auto;
     grid-template-rows: min-content 1fr;
   }
   .comment-author {
@@ -169,6 +191,10 @@ li {
     grid-column: 1;
     grid-row: 2;
     margin: 0 10px 0 auto;
+  }
+  .comment-delete-button {
+    grid-column: 3/4;
+    grid-row: 1/3;
   }
   .header {
     display: flex;
