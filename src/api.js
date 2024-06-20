@@ -19,3 +19,10 @@ export const patchArticleVotes = (article_id, inc_votes) => {
 export const getComments = (article_id) => {
     return newsApi.get(`/articles/${article_id}/comments`)
 }
+
+export const postComment = (article_id, loggedInUser, commentInput) => {
+    return newsApi.post(`/articles/${article_id}/comments`, {
+        username: loggedInUser,
+        body: commentInput,
+    })
+}

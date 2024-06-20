@@ -5,7 +5,7 @@ import { useState } from "react"
 const ArticleItem = ({article_id, singleArticle, setSingleArticle}) => {
     const pathname = document.location.pathname
     const created = new Date(singleArticle.created_at)
-    const formattedDate = `${created.getDate()}.${created.getMonth()}.${created.getFullYear()}`
+    const formattedDate = `${created.getDate()}.${created.getMonth() + 1}.${created.getFullYear()}`
     const time = created.toTimeString()
     const formattedTime = time.slice(0, 5)
 
@@ -21,7 +21,11 @@ const ArticleItem = ({article_id, singleArticle, setSingleArticle}) => {
     }
     const handleVoteDecrease = () => {
         setSingleArticle({...singleArticle, votes: singleArticle.votes -= 1})
-        patchArticleVotes(article_id, -1)
+        setErr(null)
+        patchArticleVotes(article_id, -1).catch((err) => {
+            setSingleArticle({...singleArticle, votes: singleArticle.votes += 1})
+            setErr("please try again")
+        })
     }
 
     return (<li className="article">
