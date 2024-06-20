@@ -5,7 +5,7 @@ import CommentForm from "./CommentForm";
 
 const Comments = ({article_id}) => {
     const [comments, setComments] = useState([])
-    const [newComments, setNewComments] = useState([])
+    const [isPosting, setIsPosting] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
@@ -14,7 +14,6 @@ const Comments = ({article_id}) => {
             setComments(commentsFromAPI.data.comments)
             setIsLoading(false)
         })
-        setNewComments([])
     }, [article_id])
     if(isLoading){
         return <p className="loading">Loading...</p>
@@ -22,12 +21,10 @@ const Comments = ({article_id}) => {
     return (<>
         <ul className="comment-list">
             <h2>Comments</h2>
-            <CommentForm article_id={article_id} setNewComments={setNewComments}/>
-            {newComments.map((newComment) => {
-                return <CommentItem key={newComment.key} comment={newComment}/>
-            })}
+            <CommentForm article_id={article_id} isPosting={isPosting} setIsPosting={setIsPosting} setComments={setComments} comments={comments}/>
+            {isPosting ? <p className="posting-msg">Posting...</p> : null}
             {comments.map((comment) => {
-                return <CommentItem key={comment.comment_id} comment={comment}/>
+                return <CommentItem key={comment.comment_id} comment={comment} setComments={setComments} isPosting={isPosting}/>
             })}
         </ul>
     </>)
