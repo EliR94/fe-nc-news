@@ -16,6 +16,11 @@
   min-width: 400px;
 }
 
+.header-username {
+  font-size: 0.3em;
+  margin: auto;
+}
+
 h1 {
   margin: 0;
 }
@@ -86,12 +91,18 @@ li {
   margin: 10px 0;
 }
 
+.comment-input {
+  width: 75%;
+  min-height: 30px;
+  margin: 0 10px 10px 0;
+}
+
 .article-votes {
   display: inline;
   margin-right: 10px;
 }
 
-.vote-err-msg {
+.vote-err-msg, .new-comment-err-msg {
   display: inline;
   margin-left: 10px;
   padding: 7.5px;
@@ -158,5 +169,16 @@ li {
     grid-column: 1;
     grid-row: 2;
     margin: 0 10px 0 auto;
+  }
+  .header {
+    display: flex;
+  }
+  .header-title {
+    margin: auto;
+    padding-left: 100px;
+  }
+  .header-username {
+    width: 100px;
+    margin: auto 0 auto 0;
   }
 }

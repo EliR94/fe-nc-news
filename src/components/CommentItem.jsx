@@ -1,6 +1,6 @@
 const CommentItem = ({comment}) => {
     const created = new Date(comment.created_at)
-    const formattedDate = `${created.getDate()}.${created.getMonth()}.${created.getFullYear()}`
+    const formattedDate = `${created.getDate()}.${created.getMonth() + 1}.${created.getFullYear()}`
     const time = created.toTimeString()
     const formattedTime = time.slice(0, 5)
     return (
