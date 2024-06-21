@@ -20,6 +20,7 @@ const CommentItem = ({comment, setComments, isPosting}) => {
             setIsDeleting(false)
         })
         .catch((err) => {
+            setIsDeleting(false)
             setErr("delete unsuccessful, please try again")
         })
     }

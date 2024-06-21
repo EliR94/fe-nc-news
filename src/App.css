@@ -28,6 +28,20 @@ h1 {
 .nav {
   background-color: lightgreen;
 }
+.nav-item {
+  font-size: 1.5em;
+  margin: 5px;
+}
+
+.articles-subheader {
+  margin-bottom: 0;
+  text-decoration: underline;
+}
+
+.nav-item:hover {
+  border: solid 5px;
+  border-color: gray;
+}
 
 ul {
   padding: 20px 0;

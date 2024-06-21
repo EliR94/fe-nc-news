@@ -33,7 +33,7 @@ const ArticleItem = ({article_id, singleArticle, setSingleArticle}) => {
         <h3 className="article-title">{singleArticle.title}</h3>
         <p className="article-info">By: {singleArticle.author} | Topic: {singleArticle.topic}</p>
         <p className="article-data">Posted: {formattedDate} {`(${formattedTime})`}</p> 
-        {pathname === "/" ?
+        {pathname !== `/${singleArticle.article_id}` ?
             <Link to={`/${singleArticle.article_id}`}>
                 <button>Read the full article</button>
             </Link> : 
