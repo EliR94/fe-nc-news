@@ -31,14 +31,14 @@ const ArticleItem = ({article_id, singleArticle, setSingleArticle}) => {
     return (<li className="article">
         <img className="article-img" src={singleArticle.article_img_url} alt={singleArticle.title}/>
         <h3 className="article-title">{singleArticle.title}</h3>
-        <p className="article-info">By: {singleArticle.author} | Topic: {singleArticle.topic}</p>
+        <p className="article-info">By: {singleArticle.author} | Topic: {singleArticle.topic} <br /> Votes: {singleArticle.votes} | Total comments: {singleArticle.comment_count}</p>
         <p className="article-data">Posted: {formattedDate} {`(${formattedTime})`}</p> 
+        <p className="article-body">{singleArticle.body}</p>
         {pathname !== `/${singleArticle.article_id}` ?
             <Link to={`/${singleArticle.article_id}`}>
                 <button>Read the full article</button>
             </Link> : 
             <>
-                <p className="article-body">{singleArticle.body}</p>
                 <div className="vote-buttons">
                     <p className="article-votes">Votes: {singleArticle.votes}</p>
                     <button onClick={handleVoteIncrease} className="article-like-button">👍🏻</button>

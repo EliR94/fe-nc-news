@@ -8,10 +8,12 @@ export const getTopics = () => {
     return newsApi.get('/topics')
 }
 
-export const getArticles = (topic) => {
+export const getArticles = (topic, sortBy, order) => {
     return newsApi.get('/articles', {
         params: {
             topic: topic,
+            sort_by: sortBy,
+            order: order,
         }
     })
 }

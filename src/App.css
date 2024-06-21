@@ -33,6 +33,10 @@ h1 {
   margin: 5px;
 }
 
+.sort-by, .order {
+  margin: 0 10px;
+}
+
 .articles-subheader {
   margin-bottom: 0;
   text-decoration: underline;
